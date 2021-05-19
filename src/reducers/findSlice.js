@@ -4,7 +4,7 @@ import { HTTP_STATUS } from '../constants/constants'
 export const fetchHouses = createAsyncThunk('house/fetchHouses',
     async () =>
     {
-        const { data } = await axios.get('https://findlidushouse.herokuapp.com/api/v1/houses',{ crossdomain: true });
+        const { data } = await axios.get('/houses');
         console.log(data.data, 'hii');
         return data;
     },);
