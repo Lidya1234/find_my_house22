@@ -6,7 +6,7 @@ export const fetchHouses = createAsyncThunk('house/fetchHouses',
     {
         const { data } = await axios.get('/houses');
         console.log(data.data, 'hii');
-        return data;
+        return data.data;
     },);
 export const findSlice = createSlice({
   name: 'House',
