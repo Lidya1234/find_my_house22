@@ -1,0 +1,25 @@
+.wrapper {
+    margin-left: 60px;
+    display:flex;
+    overflow-x: auto;
+}
+
+.wrapper::-webkit-scrollbar
+{
+    width: 0;
+}
+
+.house{
+    min-width: 450px;
+    height: 600px;
+    margin-right: 25px;
+}
+
+.image{
+    height: 500px;
+    width: 450px;
+}
+.house:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+  }
