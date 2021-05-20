@@ -1,12 +1,15 @@
-import './App.css';
+// import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+ import Navigation from './components/Nav';
 import HouseList from './containers/HouseList';
 
 function App() {
   return (
-    <div className="App">
-     <h1>Hello</h1>
-     <HouseList />
-    </div>
+<>
+    <Navigation />
+    <HouseList />
+</>
   );
 }
 
