@@ -1,7 +1,7 @@
 import React, { useEffect }  from 'react';
 import  { useSelector, useDispatch } from 'react-redux';
 import { fetchHouses } from '../reducers/findSlice';
-// import CardColumns from 'react-bootstrap/CardColumns';
+
 import '../style.css';
 import House from '../components/House';
 const HouseList = () =>
