@@ -2,6 +2,17 @@ import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
+// // import {
+// //   Page,
+
+// //   NavRight,
+// //   Link,
+// //   Searchbar,
+// //   List,
+// //   ListItem,
+// //   theme,
+// // } from 'framework7-react';
+
 import Nav from 'react-bootstrap/Nav'
 
 const Navigation = () => (
@@ -14,12 +25,20 @@ const Navigation = () => (
       <Nav.Link href="#pricing">Pricing</Nav.Link>
     </Nav>
     </Navbar.Collapse>
-    <Nav>
+    <Navbar.Brand className="brand">House</Navbar.Brand>
     <Form inline>
       <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-      <Button variant="outline-primary">Search</Button>
+      <Button variant="outline-success">Search</Button>
     </Form>
-    </Nav>
+    {/* <Nav>
+    <Searchbar
+        className="searchbar-demo"
+        expandable
+        searchContainer=".search-list"
+        searchIn=".item-title"
+        disableButton={!theme.aurora}
+      ></Searchbar>
+    </Nav> */}
   </Navbar>
 );
 export default Navigation;
