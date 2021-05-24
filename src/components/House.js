@@ -1,12 +1,13 @@
 import React from 'react';
-import '../style.css';
-import '../Rating/Rating.css';
+import { Link } from 'react-router-dom';
+import '../style/style.css';
+import '../style/Rating.css';
 const House = ( { key, name, image, price, rank }) =>
 {  const rate = (rank / 5) * 100
     return(
-     <div className="house">
+     <Link to='./SingleHouseList'><div className="house">
          <img className="image" src={image} alt={image} />
-         <div className="description">
+         <div className="describe">
            <div className="name">{name}
            <div> <span className="star-wrapper">
       <span className="stars" style={{ width: rate + "%" }}></span>
@@ -16,15 +17,7 @@ const House = ( { key, name, image, price, rank }) =>
             
          </div>
      </div>
+     </Link>
     )
 }
 export default House;
-{/* <Card  style={{ minwidth: '30px' }}>
-<Card.Img  src={image} />
-<Card.Body>
-  <Card.Title>{name}</Card.Title>
-  <Card.Text>
-    {price}{rank}
-  </Card.Text>
-</Card.Body>
-</Card> */}

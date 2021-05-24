@@ -2,7 +2,6 @@ import React, { useEffect }  from 'react';
 import  { useSelector, useDispatch } from 'react-redux';
 import { fetchHouses } from '../reducers/findSlice';
 
-import '../style.css';
 import House from '../components/House';
 const HouseList = () =>
 {  const dispatch =useDispatch()
