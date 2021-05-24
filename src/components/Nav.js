@@ -1,21 +1,9 @@
 import Navbar from 'react-bootstrap/Navbar';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl';
-// // import {
-// //   Page,
-
-// //   NavRight,
-// //   Link,
-// //   Searchbar,
-// //   List,
-// //   ListItem,
-// //   theme,
-// // } from 'framework7-react';
-
 import Nav from 'react-bootstrap/Nav'
-
+import { FaSearch } from 'react-icons/fa'
+import '../style/main.scss'
 const Navigation = () => (
+
 <Navbar bg="light" variant="light" expand="lg" collapseOnSelect>
 <Navbar.Toggle aria-controls="basic-navbar-nav" />
 <Navbar.Collapse id="basic-navbar-nav">
@@ -26,19 +14,13 @@ const Navigation = () => (
     </Nav>
     </Navbar.Collapse>
     <Navbar.Brand className="brand">House</Navbar.Brand>
-    <Form inline>
-      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-      <Button variant="outline-success">Search</Button>
-    </Form>
-    {/* <Nav>
-    <Searchbar
-        className="searchbar-demo"
-        expandable
-        searchContainer=".search-list"
-        searchIn=".item-title"
-        disableButton={!theme.aurora}
-      ></Searchbar>
-    </Nav> */}
+   
+  <div className="search">
+    <input type="text" className="search__input" aria-label="search" placeholder="enter your search" />
+    <button className="search__submit" aria-label="submit search"><FaSearch /></button>
+  </div>
+
   </Navbar>
+
 );
 export default Navigation;
