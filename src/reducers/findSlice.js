@@ -8,10 +8,19 @@ export const fetchHouses = createAsyncThunk('house/fetchHouses',
         console.log(data.data, 'hii');
         return data.data;
     },);
+
+    export const fetchHouse = createAsyncThunk('house/fetchHouse',
+    async (id) =>
+    {
+        const { data } = await axios.get(`/houses/${id}`);
+        console.log(data.data, 'hii');
+        return data.data;
+    },);
 export const findSlice = createSlice({
   name: 'House',
   initialState: {
     house: [],
+    singlehouse: [],
     status: 'idle',
   },
   reducers: {
@@ -29,6 +38,18 @@ export const findSlice = createSlice({
         state.house = action.payload;
       },
       [fetchHouses.rejected](state, action)
+      {
+        state.status = HTTP_STATUS.REJECTED;
+      },
+      [fetchHouse.pending](state)
+      {
+       state.status = HTTP_STATUS.PENDING;
+      },
+      [fetchHouse.fulfilled](state, action)
+      { state.status = HTTP_STATUS.FULFILLED;
+        state.singlehouse = action.payload;
+      },
+      [fetchHouse.rejected](state, action)
       {
         state.status = HTTP_STATUS.REJECTED;
       },
