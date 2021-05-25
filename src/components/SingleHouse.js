@@ -2,7 +2,7 @@ import React from 'react';
 import '../style/style.css';
 import '../style/Rating.css';
 import ReactTextCollapse from 'react-text-collapse'
-import { FaAngleDown, FaAngleUp, FaCentercode } from 'react-icons/fa'
+import { FaAngleDown, FaAngleUp } from 'react-icons/fa'
 
 const SingleHouse = ( { key, name, image, price, rank }) =>
 {  const rate = (rank / 5) * 100;
