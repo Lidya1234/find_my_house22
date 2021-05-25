@@ -2,7 +2,7 @@ import React, { useEffect }  from 'react';
 import  { useSelector, useDispatch } from 'react-redux';
 import { fetchHouse } from '../reducers/findSlice';
 import SingleNav from '../components/SingleNav'
-import SingleHouse from '../components/House';
+import SingleHouse from '../components/SingleHouse';
 const SingleHouseList = () =>
 {  const dispatch =useDispatch()
      const { house, singlehouse ,status } = useSelector(state => state.houses)
@@ -14,14 +14,12 @@ console.log(singlehouse , status ,'status')
     return(
         <>
         <SingleNav name={singlehouse.name} />
-        <div className="wrapper">
+      
             
     <SingleHouse key={singlehouse.id} image={singlehouse.image} name={singlehouse.name} price={singlehouse.price} rank={singlehouse.rank} />
-                    
-                
- 
-    
-        </div>
+
+
+        <button type="button" className="appbtn">Apply to rent</button>
         </>
     )
 }
