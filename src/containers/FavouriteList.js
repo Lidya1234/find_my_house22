@@ -1,7 +1,4 @@
-const FavouriteList = () =>
-{
-return(
-    <div></div>
-)
-}
+const FavouriteList = () => (
+  <div />
+);
 export default FavouriteList;
