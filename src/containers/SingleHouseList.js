@@ -1,14 +1,18 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 import { fetchHouse } from '../reducers/findSlice';
 import SingleNav from '../components/SingleNav';
 import SingleHouse from '../components/SingleHouse';
 
 const SingleHouseList = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
+  const id = location.state?.data;
+  console.log(id);
   const { singlehouse, status } = useSelector((state) => state.houses);
   useEffect(() => {
-    dispatch(fetchHouse(1));
+    dispatch(fetchHouse(id));
   }, [dispatch]);
   console.log(singlehouse, status, 'status');
   return (
@@ -27,4 +31,5 @@ const SingleHouseList = () => {
     </>
   );
 };
+
 export default SingleHouseList;
