@@ -23,6 +23,7 @@ const HouseList = () => {
                     house.map((home) => (
                       <House
                         key={home.id}
+                        id={home.id}
                         image={home.image}
                         name={home.name}
                         price={home.price}
