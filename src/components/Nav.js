@@ -10,8 +10,8 @@ const Navigation = () => (
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto">
         <Nav.Link href="./">Home</Nav.Link>
-        <Nav.Link href="#features">Features</Nav.Link>
-        <Nav.Link href="#pricing">Pricing</Nav.Link>
+        {/* <Nav.Link href="#features">Features</Nav.Link> */}
+        <Nav.Link href="/Logout">Logout</Nav.Link>
       </Nav>
     </Navbar.Collapse>
     <Navbar.Brand className="brand">Houses</Navbar.Brand>
