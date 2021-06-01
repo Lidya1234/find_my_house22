@@ -4,28 +4,45 @@ import { HTTP_STATUS } from '../constants/constants';
 
 export const fetchHouses = createAsyncThunk('house/fetchHouses',
   async () => {
-    const { data } = await axios.get('/houses');
+    const { data } = await axios.get('/api/v1/houses');
     console.log(data.data, 'hii');
     return data.data;
   });
 
 export const fetchHouse = createAsyncThunk('house/fetchHouse',
   async (id) => {
-    const { data } = await axios.get(`/houses/${id}`);
+    const { data } = await axios.get(`/api/v1/houses/${id}`);
     console.log(data.data, 'hii');
     return data.data;
   });
 
 export const loginstatus = createAsyncThunk('status/loginstatus',
   async () => {
-    const { data } = await axios.get(`http://localhost:3001/logged_in', 
-    {withCredentials: true}`);
-    return data.data;
+    const { data } = await axios.get('/logged_in',
+      {
+        withCredentials: true,
+        credentials: 'include',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Credentials': true,
+        },
+      });
+    console.log(data);
+    return data;
   });
 
 export const loginuser = createAsyncThunk('user/loginuser',
   async (user) => {
-    const { data } = await axios.post('http://localhost:3001/login', { user }, { withCredentials: true });
+    const { data } = await axios.post('/login', { user }, { withCredentials: true });
+    console.log(data);
+    return data.data;
+  });
+
+export const logoutuser = createAsyncThunk('user/logoutuser',
+  async () => {
+    const { data } = await axios.post('/logout', { withCredentials: true });
+    console.log(data);
     return data.data;
   });
 
@@ -35,7 +52,8 @@ export const findSlice = createSlice({
     house: [],
     singlehouse: [],
     status: 'idle',
-    isLoggedIn: false,
+    // isLoggedIn: false,
+    userInfo: {},
     user: {},
   },
   reducers: {
@@ -76,15 +94,19 @@ export const findSlice = createSlice({
     },
     [loginstatus.fulfilled](state, action) {
       state.status = HTTP_STATUS.FULFILLED;
-      if (state.isLoggedIn) {
-        state.isLoggedIn = false;
-        state.user = {};
-      } else {
-        state.isLoggedIn = true;
-        state.user = action.payload;
-      }
+      state.userInfo = action.payload;
     },
     [loginstatus.rejected](state) {
+      state.status = HTTP_STATUS.REJECTED;
+    },
+    [logoutuser.pending](state) {
+      state.status = HTTP_STATUS.PENDING;
+    },
+    [logoutuser.fulfilled](state) {
+      state.status = HTTP_STATUS.FULFILLED;
+      state.userInfo = {};
+    },
+    [logoutuser.rejected](state) {
       state.status = HTTP_STATUS.REJECTED;
     },
   },
