@@ -5,11 +5,16 @@ import '../style/style.css';
 import '../style/Rating.css';
 
 const House = ({
-  name, image, price, rank,
+  id, name, image, price, rank,
 }) => {
+  console.log(id);
   const rate = (rank / 5) * 100;
   return (
-    <Link to="./SingleHouseList">
+    <Link to={{
+      pathname: './SingleHouseList',
+      state: { data: id },
+    }}
+    >
       <div className="house">
         <img className="image" src={image} alt={image} />
         <div className="describe">
@@ -35,6 +40,7 @@ const House = ({
 };
 
 House.propTypes = {
+  id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
