@@ -46,13 +46,26 @@ export const logoutuser = createAsyncThunk('user/logoutuser',
     return data.data;
   });
 
+export const addfavorite = createAsyncThunk('favorite/addfavorite',
+  async (favorite) => {
+    const { data } = await axios.post('/favorites', { favorite }, { withCredentials: true });
+    console.log(data);
+    return data.data;
+  });
+export const fetchFavorite = createAsyncThunk('favorite/fetchFavorite',
+  async () => {
+    const { data } = await axios.get('/favorites');
+    console.log(data.data, 'hii');
+    return data.data;
+  });
+
 export const findSlice = createSlice({
   name: 'House',
   initialState: {
     house: [],
     singlehouse: [],
+    favorite: [],
     status: 'idle',
-    // isLoggedIn: false,
     userInfo: {},
     user: {},
   },
@@ -87,6 +100,16 @@ export const findSlice = createSlice({
       state.singlehouse = action.payload;
     },
     [fetchHouse.rejected](state) {
+      state.status = HTTP_STATUS.REJECTED;
+    },
+    [fetchFavorite.pending](state) {
+      state.status = HTTP_STATUS.PENDING;
+    },
+    [fetchFavorite.fulfilled](state, action) {
+      state.status = HTTP_STATUS.FULFILLED;
+      state.favorite = action.payload;
+    },
+    [fetchFavorite.rejected](state) {
       state.status = HTTP_STATUS.REJECTED;
     },
     [loginstatus.pending](state) {
