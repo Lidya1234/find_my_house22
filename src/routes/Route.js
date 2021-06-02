@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { loginstatus } from '../reducers/findSlice';
 import HouseList from '../containers/HouseList';
+import FavouriteList from '../containers/FavouriteList';
 import SingleHouseList from '../containers/SingleHouseList';
 import Login from '../components/Login';
 import Logout from '../components/Logout';
@@ -38,6 +39,21 @@ const Routes = () => {
           render={() => (
             userInfo.logged_in ? (
               <HouseList />
+            )
+              : (
+                <div className="login-access">
+                  <p>You need to Sign In to access here</p>
+                </div>
+              )
+          )}
+        />
+
+        <Route
+          exact
+          path="/FavouriteList"
+          render={() => (
+            userInfo.logged_in ? (
+              <FavouriteList />
             )
               : (
                 <div className="login-access">

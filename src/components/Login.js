@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { loginuser } from '../reducers/findSlice';
 import '../style/style.css';
-// import '../style/login.css';
 import '../style/main.scss';
 
 const Login = () => {
