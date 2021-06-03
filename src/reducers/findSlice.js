@@ -138,4 +138,5 @@ export const findSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const { SETUSER } = findSlice.actions;
 
+// export const selectAllHouses = (state) => state.house;
 export default findSlice.reducer;
