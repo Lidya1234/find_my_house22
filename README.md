@@ -1,6 +1,9 @@
 # Find My House
 
 This is a find my house project built with react, HTML5, CSS3, and redux toolkit. It fetches data from https://findlidushouse.herokuapp.com API. It lists the house each image is clickable, and it is linked to the description of each item.
+
+
+
 <img src="Capture.PNG">
 <img src="house.PNG">
 ## Built With
