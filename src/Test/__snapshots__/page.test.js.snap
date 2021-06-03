@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The navigation bar should contain Matchs snapshot 1`] = `
+<div
+  className="page"
+>
+  <h4>
+    1/64
+  </h4>
+</div>
+`;
