@@ -7,7 +7,6 @@ import '../style/Rating.css';
 const House = ({
   id, name, image, price, rank,
 }) => {
-  console.log(id);
   const rate = (rank / 5) * 100;
   return (
     <Link to={{

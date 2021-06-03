@@ -3,7 +3,7 @@ import '../style/style.css';
 
 const Page = () => (
   <div className="page">
-    <h4>1/64</h4>
+    <h6>Scroll horizontally</h6>
   </div>
 );
 export default Page;

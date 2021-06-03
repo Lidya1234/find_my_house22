@@ -4,8 +4,8 @@ exports[`The navigation bar should contain Matchs snapshot 1`] = `
 <div
   className="page"
 >
-  <h4>
-    1/64
-  </h4>
+  <h6>
+    Scroll horizontally
+  </h6>
 </div>
 `;

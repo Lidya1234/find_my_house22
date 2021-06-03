@@ -8,11 +8,10 @@ import House from '../components/House';
 
 const HouseList = () => {
   const dispatch = useDispatch();
-  const { house, status } = useSelector((state) => state.houses);
+  const { house } = useSelector((state) => state.houses);
   useEffect(() => {
     dispatch(fetchHouses());
   }, [dispatch]);
-  console.log(house, status, 'status');
 
   return (
     <>

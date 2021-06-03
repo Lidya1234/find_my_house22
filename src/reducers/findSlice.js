@@ -5,14 +5,12 @@ import { HTTP_STATUS } from '../constants/constants';
 export const fetchHouses = createAsyncThunk('house/fetchHouses',
   async () => {
     const { data } = await axios.get('/api/v1/houses');
-    console.log(data.data, 'hii');
     return data.data;
   });
 
 export const fetchHouse = createAsyncThunk('house/fetchHouse',
   async (id) => {
     const { data } = await axios.get(`/api/v1/houses/${id}`);
-    console.log(data.data, 'hii');
     return data.data;
   });
 
@@ -28,34 +26,29 @@ export const loginstatus = createAsyncThunk('status/loginstatus',
           'Access-Control-Allow-Credentials': true,
         },
       });
-    console.log(data);
     return data;
   });
 
 export const loginuser = createAsyncThunk('user/loginuser',
   async (user) => {
     const { data } = await axios.post('/login', { user }, { withCredentials: true });
-    console.log(data);
     return data.data;
   });
 
 export const logoutuser = createAsyncThunk('user/logoutuser',
   async () => {
     const { data } = await axios.post('/logout', { withCredentials: true });
-    console.log(data);
     return data.data;
   });
 
 export const addfavorite = createAsyncThunk('favorite/addfavorite',
   async (favorite) => {
     const { data } = await axios.post('/favorites', { favorite }, { withCredentials: true });
-    console.log(data);
     return data.data;
   });
 export const fetchFavorite = createAsyncThunk('favorite/fetchFavorite',
   async () => {
     const { data } = await axios.get('/favorites');
-    console.log(data.data, 'hii');
     return data.data;
   });
 
@@ -137,6 +130,4 @@ export const findSlice = createSlice({
 /* eslint-enable no-param-reassign */
 // Action creators are generated for each case reducer function
 export const { SETUSER } = findSlice.actions;
-
-// export const selectAllHouses = (state) => state.house;
 export default findSlice.reducer;

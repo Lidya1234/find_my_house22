@@ -1,82 +1,82 @@
-html{
+html {
   height: 100%;
 }
 
-body{
+body {
   min-height: 100%;
 }
 
 .wrapper {
-    padding-left: 40px;
-    display:flex;
-    overflow-x: auto;
-    margin-top: 40px;
+  padding-left: 40px;
+  display: flex;
+  overflow-x: auto;
+  margin-top: 40px;
 }
 
-.wrapper::-webkit-scrollbar
-{
-    width: 0;
+.wrapper::-webkit-scrollbar {
+  width: 0;
 }
 
-.navigation{
+.navigation {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
-.house{
-    min-width: 250px;
-    height: 380px;
-    margin-right: 15px;
-    background-color: white;
+
+.house {
+  min-width: 250px;
+  height: 380px;
+  margin-right: 15px;
+  background-color: white;
 }
 
-.singlehouse{
+.singlehouse {
   width: 100%;
   height: 330px;
- 
   position: relative;
 }
 
-.singleimage
-{  height: 330px;
+.singleimage {
+  height: 330px;
   width: 100%;
 }
 
-.image{
-    height: 300px;
-    width: 250px;
+.image {
+  height: 300px;
+  width: 250px;
 }
+
 .house:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
-  }
-.describe{
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+.describe {
   display: flex;
   justify-content: space-between;
   width: 100%;
   color: gray;
 }
- 
 
-  .description{
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    width: 100%;
-    top: 55%;
-    padding-left: 7%;
-    padding-right: 7%;
-    color: white;
-    font-weight: bolder;
+.description {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  width: 100%;
+  top: 55%;
+  padding-left: 7%;
+  padding-right: 7%;
+  color: white;
+  font-weight: bolder;
+}
 
-  }
 .appbtn {
-
   height: 70px;
   background-color: rgb(165, 66, 8);
- 
 }
-.appbtn,.page {
+
+.appbtn,
+.page {
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -85,47 +85,46 @@ body{
   margin-top: 30%;
 }
 
-.container{
+.container {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-
- background-image: url('../image/palm4.jpg');
- background-repeat: no-repeat;
- background-size: 100% 100%;
-
- height: 100%;
- position: absolute;
- top: 0;
- left: 0;
- opacity: 0.8;
+  background-image: url('../image/palm4.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.8;
 }
 
-.login{
-  color:aliceblue;
+.login {
+  color: aliceblue;
 }
-.login h1{
+
+.login h1 {
   padding-left: 5%;
 }
-.form
-{
+
+.form {
   margin-top: 30%;
   margin-bottom: 100%;
 }
-.txt-input{
-border-radius: 20px;
-border-color: orange;
-margin-bottom: 20px;
-padding: 6px;
+
+.txt-input {
+  border-radius: 20px;
+  border-color: orange;
+  margin-bottom: 20px;
+  padding: 6px;
 }
 
-.btn-signin{
+.btn-signin {
   margin-left: 20%;
   width: 50%;
 }
 
 .forgotpwd {
-color: black;
+  color: black;
 }
-

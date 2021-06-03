@@ -39,7 +39,7 @@ To get a local copy up and make it run, follow these simple example steps.
 
 - install code editor
 - Browser
-
+- To sign in use(username: Lidya ,password: 1234567)
 
 ## Author Details::
 
@@ -49,6 +49,9 @@ To get a local copy up and make it run, follow these simple example steps.
 - Twitter: [@Lidya-twitter](https://twitter.com/Lidya42676629)
 - Linkedin: [Lidya-linkedin-link](https://www.linkedin.com/in/lidya-ghebreigziabher-4a94391aa/)
  
+
+## Acknowledgment
+- Alexey Savitskiy on Behance on Behance(design author)
 
 
 ## 🤝 Contributing

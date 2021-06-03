@@ -9,12 +9,10 @@ const SingleHouseList = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const id = location.state?.data;
-  console.log(id);
-  const { singlehouse, status } = useSelector((state) => state.houses);
+  const { singlehouse } = useSelector((state) => state.houses);
   useEffect(() => {
     dispatch(fetchHouse(id));
   }, [dispatch]);
-  console.log(singlehouse, status, 'status');
   const handleAddFavorite = (event) => {
     event.preventDefault();
     const userid = id;
@@ -23,7 +21,6 @@ const SingleHouseList = () => {
       user_id: userid,
       house_id: houseid,
     };
-    console.log(favorite);
     dispatch(addfavorite(favorite));
   };
   return (

@@ -16,18 +16,15 @@ const Login = () => {
       username,
       password,
     };
-    console.log(user);
     dispatch(loginuser(user));
     history.push('/HouseList');
   };
 
   const handleUNameChange = (e) => {
     username = e.target.value;
-    console.log(username);
   };
   const handlePasswordChange = (e) => {
     password = e.target.value;
-    console.log(password);
   };
   return (
     <div className="container">

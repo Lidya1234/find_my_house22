@@ -9,9 +9,6 @@ const SingleHouse = ({
   name, image, price, rank, description,
 }) => {
   const rate = (rank / 5) * 100;
-  console.log({
-    name, image, price, rank,
-  });
   const TEXT_COLLAPSE_OPTIONS = {
     collapse: false,
     collapseText: <FaAngleDown />,
@@ -27,7 +24,7 @@ const SingleHouse = ({
   };
   return (
     <>
-      <div className="singlehouse">
+      <div className="singlehouse" data-testid="house">
         <img className="singleimage" src={image} alt={image} />
         <div className="description">
           <div className="name">
