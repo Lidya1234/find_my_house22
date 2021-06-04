@@ -16,7 +16,7 @@ export const fetchHouse = createAsyncThunk('house/fetchHouse',
 
 export const loginstatus = createAsyncThunk('status/loginstatus',
   async () => {
-    const { data } = await axios.get('https://findlidushouse.herokuapp.com/logged_in',
+    const { data } = await axios.get('/logged_in',
       {
         withCredentials: true,
         credentials: 'include',
@@ -31,7 +31,15 @@ export const loginstatus = createAsyncThunk('status/loginstatus',
 
 export const loginuser = createAsyncThunk('user/loginuser',
   async (user) => {
-    const { data } = await axios.post('https://findlidushouse.herokuapp.com/login', { user }, { withCredentials: true });
+    const { data } = await axios.post('/login', { user }, {
+      withCredentials: true,
+      credentials: 'include',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Credentials': true,
+      },
+    });
     return data.data;
   });
 
