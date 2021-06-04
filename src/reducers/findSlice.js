@@ -4,19 +4,19 @@ import { HTTP_STATUS } from '../constants/constants';
 
 export const fetchHouses = createAsyncThunk('house/fetchHouses',
   async () => {
-    const { data } = await axios.get('https://findlidushouse.herokuapp.com/api/v1/houses');
+    const { data } = await axios.get('/api/v1/houses');
     return data.data;
   });
 
 export const fetchHouse = createAsyncThunk('house/fetchHouse',
   async (id) => {
-    const { data } = await axios.get(`https://findlidushouse.herokuapp.com/api/v1/houses/${id}`);
+    const { data } = await axios.get(`/api/v1/houses/${id}`);
     return data.data;
   });
 
 export const loginstatus = createAsyncThunk('status/loginstatus',
   async () => {
-    const { data } = await axios.get('https://findlidushouse.herokuapp.com/logged_in',
+    const { data } = await axios.get('/logged_in',
       {
         withCredentials: true,
         credentials: 'include',
@@ -31,24 +31,24 @@ export const loginstatus = createAsyncThunk('status/loginstatus',
 
 export const loginuser = createAsyncThunk('user/loginuser',
   async (user) => {
-    const { data } = await axios.post('https://findlidushouse.herokuapp.com/login', { user }, { withCredentials: true });
+    const { data } = await axios.post('/login', { user }, { withCredentials: true });
     return data.data;
   });
 
 export const logoutuser = createAsyncThunk('user/logoutuser',
   async () => {
-    const { data } = await axios.post('https://findlidushouse.herokuapp.com/logout', { withCredentials: true });
+    const { data } = await axios.post('/logout', { withCredentials: true });
     return data.data;
   });
 
 export const addfavorite = createAsyncThunk('favorite/addfavorite',
   async (favorite) => {
-    const { data } = await axios.post('https://findlidushouse.herokuapp.com/favorites', { favorite }, { withCredentials: true });
+    const { data } = await axios.post('/favorites', { favorite }, { withCredentials: true });
     return data.data;
   });
 export const fetchFavorite = createAsyncThunk('favorite/fetchFavorite',
   async () => {
-    const { data } = await axios.get('https://findlidushouse.herokuapp.com/favorites');
+    const { data } = await axios.get('/favorites');
     return data.data;
   });
 
