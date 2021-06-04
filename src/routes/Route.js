@@ -79,7 +79,6 @@ const Routes = () => {
         />
         <Route exact path="/Login" component={Login} />
         <Route exact path="/Logout" component={Logout} />
-        {/* <div><h1>Access Denied.Please Login first</h1></div> */}
       </Switch>
 
     </BrowserRouter>

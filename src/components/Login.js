@@ -1,7 +1,7 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { loginuser } from '../reducers/findSlice';
+import { loginuser, loginstatus } from '../reducers/findSlice';
 import '../style/style.css';
 import '../style/main.scss';
 
@@ -10,6 +10,7 @@ const Login = () => {
   let password = '';
   const history = useHistory();
   const dispatch = useDispatch();
+  const { userInfo } = useSelector((state) => state.houses);
   const handleSubmit = (event) => {
     event.preventDefault();
     const user = {
@@ -17,7 +18,10 @@ const Login = () => {
       password,
     };
     dispatch(loginuser(user));
-    history.push('/HouseList');
+    dispatch(loginstatus());
+    if (userInfo.logged_in) {
+      history.push('/HouseList');
+    }
   };
 
   const handleUNameChange = (e) => {
