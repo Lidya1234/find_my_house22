@@ -2,7 +2,6 @@
   "name": "find_my_house",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://findlidushouse.herokuapp.com",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
@@ -30,13 +29,13 @@
     "sass": "^1.34.0",
     "web-vitals": "^1.0.1"
   },
+  "proxy": "https://findlidushouse.herokuapp.com",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-
   "eslintConfig": {
     "extends": [
       "react-app",

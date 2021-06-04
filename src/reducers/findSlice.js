@@ -10,7 +10,7 @@ export const fetchHouses = createAsyncThunk('house/fetchHouses',
 
 export const fetchHouse = createAsyncThunk('house/fetchHouse',
   async (id) => {
-    const { data } = await axios.get(`https://findlidushouse.herokuapp.com/api/v1/houses/${id}`);
+    const { data } = await axios.get(`/api/v1/houses/${id}`);
     return data.data;
   });
 
@@ -33,12 +33,6 @@ export const loginuser = createAsyncThunk('user/loginuser',
   async (user) => {
     const { data } = await axios.post('/login', { user }, {
       withCredentials: true,
-      credentials: 'include',
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Credentials': true,
-      },
     });
     return data.data;
   });
