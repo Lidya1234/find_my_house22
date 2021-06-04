@@ -16,22 +16,23 @@ export const fetchHouse = createAsyncThunk('house/fetchHouse',
 
 export const loginstatus = createAsyncThunk('status/loginstatus',
   async () => {
-    const { data } = await axios.get('/logged_in',
-      {
-        withCredentials: true,
-        credentials: 'include',
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Credentials': true,
-        },
-      });
+    const { data } = await axios.get('/find/logged_in');
+    // {
+    //   withCredentials: true,
+    //   credentials: 'include',
+    //   headers: {
+    //     'Access-Control-Allow-Origin': '*',
+    //     'Content-Type': 'application/json',
+    //     'Access-Control-Allow-Credentials': true,
+    //   },
+    // }
+
     return data;
   });
 
 export const loginuser = createAsyncThunk('user/loginuser',
   async (user) => {
-    const { data } = await axios.post('/login', { user }, {
+    const { data } = await axios.post('/find/login', { user }, {
       withCredentials: true,
     });
     return data.data;
