@@ -31,7 +31,7 @@ export const loginstatus = createAsyncThunk('status/loginstatus',
 
 export const loginuser = createAsyncThunk('user/loginuser',
   async (user) => {
-    const { data } = await axios.post('/login', { user }, {
+    const { data } = await axios.post('https://findlidushouse.herokuapp.com/login', { user }, {
       withCredentials: true,
       credentials: 'include',
       headers: {
