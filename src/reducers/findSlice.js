@@ -31,14 +31,15 @@ export const loginstatus = createAsyncThunk('status/loginstatus',
 
 export const loginuser = createAsyncThunk('user/loginuser',
   async (user) => {
-    const { data } = await axios.post('/login', { user },     {
+    const { data } = await axios.post('/login', { user }, {
       withCredentials: true,
       credentials: 'include',
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
         'Access-Control-Allow-Credentials': true,
-      },);
+      },
+    });
     return data.data;
   });
 
