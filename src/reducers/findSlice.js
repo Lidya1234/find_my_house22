@@ -32,9 +32,7 @@ export const loginstatus = createAsyncThunk('status/loginstatus',
 
 export const loginuser = createAsyncThunk('user/loginuser',
   async (user) => {
-    const { data } = await axios.post('/find/login', { user }, {
-      withCredentials: true,
-    });
+    const { data } = await axios.post('/find/login', { user });
     return data.data;
   });
 
