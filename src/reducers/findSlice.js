@@ -4,24 +4,42 @@ import { HTTP_STATUS } from '../constants/constants';
 
 export const fetchHouses = createAsyncThunk('house/fetchHouses',
   async () => {
-    const { data } = await axios.get('https://findlidushouse.herokuapp.com/api/v1/houses');
+    const { data } = await axios.get('/api/v1/houses', {
+      mode: 'no-cors',
+      withCredentials: true,
+      credentials: 'include',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Credentials': true,
+      },
+    });
     return data.data;
   });
 
 export const fetchHouse = createAsyncThunk('house/fetchHouse',
   async (id) => {
-    const { data } = await axios.get(`https://findlidushouse.herokuapp.com/api/v1/houses/${id}`);
+    const { data } = await axios.get(`/api/v1/houses/${id}`, {
+      mode: 'no-cors',
+      withCredentials: true,
+      credentials: 'include',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Credentials': true,
+      },
+    });
     return data.data;
   });
 
 export const loginstatus = createAsyncThunk('status/loginstatus',
   async () => {
-    const { data } = await axios.get('https://findlidushouse.herokuapp.com/logged_in',
+    const { data } = await axios.get(' https://mysterious-cliffs-97334.herokuapp.com/https://findlidushouse.herokuapp.com/logged_in',
       {
+        mode: 'no-cors',
         withCredentials: true,
         credentials: 'include',
         headers: {
-          'Access-Control-Allow-Origin': '*',
           'Content-Type': 'application/json',
           'Access-Control-Allow-Credentials': true,
         },
@@ -32,26 +50,27 @@ export const loginstatus = createAsyncThunk('status/loginstatus',
 
 export const loginuser = createAsyncThunk('user/loginuser',
   async (user) => {
-    const { data } = await axios.post('https://findlidushouse.herokuapp.com/login', { user }, {
+    const { data } = await axios.post(' https://mysterious-cliffs-97334.herokuapp.com/https://findlidushouse.herokuapp.com/login', { user }, {
       withCredentials: true,
+      mode: 'no-cors',
     });
     return data.data;
   });
 
 export const logoutuser = createAsyncThunk('user/logoutuser',
   async () => {
-    const { data } = await axios.post('https://findlidushouse.herokuapp.com/logout', { withCredentials: true });
+    const { data } = await axios.post('/logout', { withCredentials: true });
     return data.data;
   });
 
 export const addfavorite = createAsyncThunk('favorite/addfavorite',
   async (favorite) => {
-    const { data } = await axios.post('https://findlidushouse.herokuapp.com/favorites', { favorite }, { withCredentials: true });
+    const { data } = await axios.post('/favorites', { favorite }, { withCredentials: true });
     return data.data;
   });
 export const fetchFavorite = createAsyncThunk('favorite/fetchFavorite',
   async () => {
-    const { data } = await axios.get('https://findlidushouse.herokuapp.com/favorites');
+    const { data } = await axios.get('/favorites');
     return data.data;
   });
 
