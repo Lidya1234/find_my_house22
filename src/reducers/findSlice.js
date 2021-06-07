@@ -34,26 +34,28 @@ export const fetchHouse = createAsyncThunk('house/fetchHouse',
 
 export const loginstatus = createAsyncThunk('status/loginstatus',
   async () => {
-    const { data } = await axios.get('https://findlidushouse.herokuapp.com/logged_in',
-      {
-        mode: 'no-cors',
-        withCredentials: true,
-        credentials: 'include',
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Credentials': true,
-        },
-      });
+    const { data } = await axios.get('https://findlidushouse.herokuapp.com/logged_in');
+    // {
+    //   mode: 'no-cors',
+    //   withCredentials: true,
+    //   credentials: 'include',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     'Access-Control-Allow-Credentials': true,
+    //   },
+    // }
 
     return data;
   });
 
 export const loginuser = createAsyncThunk('user/loginuser',
   async (user) => {
-    const { data } = await axios.post('https://findlidushouse.herokuapp.com/login', { user }, {
-      withCredentials: true,
-      mode: 'no-cors',
-    });
+    const { data } = await axios.post('https://findlidushouse.herokuapp.com/login', { user });
+    // , {
+    //   withCredentials: true,
+    //   mode: 'no-cors',
+    // }
+
     return data.data;
   });
 
