@@ -4,31 +4,33 @@ import { HTTP_STATUS } from '../constants/constants';
 
 export const fetchHouses = createAsyncThunk('house/fetchHouses',
   async () => {
-    const { data } = await axios.get('/api/v1/houses', {
-      mode: 'no-cors',
-      withCredentials: true,
-      credentials: 'include',
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Credentials': true,
-      },
-    });
+    const { data } = await axios.get('https://findlidushouse.herokuapp.com/api/v1/houses');
+    // , {
+    // mode: 'no-cors',
+    // withCredentials: true,
+    // credentials: 'include',
+    // headers: {
+    //   'Access-Control-Allow-Origin': '*',
+    //   'Content-Type': 'application/json',
+    //   'Access-Control-Allow-Credentials': true,
+    // },
+    // }
     return data.data;
   });
 
 export const fetchHouse = createAsyncThunk('house/fetchHouse',
   async (id) => {
-    const { data } = await axios.get(`/api/v1/houses/${id}`, {
-      mode: 'no-cors',
-      withCredentials: true,
-      credentials: 'include',
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Credentials': true,
-      },
-    });
+    const { data } = await axios.get(`https://findlidushouse.herokuapp.com/api/v1/houses/${id}`);
+    // , {
+    //   mode: 'no-cors',
+    //   withCredentials: true,
+    //   credentials: 'include',
+    //   headers: {
+    //     'Access-Control-Allow-Origin': '*',
+    //     'Content-Type': 'application/json',
+    //     'Access-Control-Allow-Credentials': true,
+    //   },
+    // }
     return data.data;
   });
 
@@ -56,7 +58,7 @@ export const loginuser = createAsyncThunk('user/loginuser',
     //   mode: 'no-cors',
     // }
 
-    return data.data;
+    return data;
   });
 
 export const logoutuser = createAsyncThunk('user/logoutuser',
@@ -137,6 +139,16 @@ export const findSlice = createSlice({
       state.userInfo = action.payload;
     },
     [loginstatus.rejected](state) {
+      state.status = HTTP_STATUS.REJECTED;
+    },
+    [loginuser.pending](state) {
+      state.status = HTTP_STATUS.PENDING;
+    },
+    [loginuser.fulfilled](state, action) {
+      state.status = HTTP_STATUS.FULFILLED;
+      state.userInfo = action.payload;
+    },
+    [loginuser.rejected](state) {
       state.status = HTTP_STATUS.REJECTED;
     },
     [logoutuser.pending](state) {
