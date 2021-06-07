@@ -17,8 +17,10 @@ const Login = () => {
       username,
       password,
     };
+    console.log(user);
     dispatch(loginuser(user));
     dispatch(loginstatus());
+    console.log(userInfo.logged_in);
     if (userInfo.logged_in) {
       history.push('/HouseList');
     }
@@ -26,6 +28,7 @@ const Login = () => {
 
   const handleUNameChange = (e) => {
     username = e.target.value;
+    console.log(username);
   };
   const handlePasswordChange = (e) => {
     password = e.target.value;

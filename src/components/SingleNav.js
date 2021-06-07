@@ -7,7 +7,7 @@ import '../style/main.scss';
 const SingleNav = ({ name }) => (
   <Navbar bg="light" variant="light" expand="lg" collapseOnSelect>
 
-    <Nav.Link href="./"><FaLessThan /></Nav.Link>
+    <Nav.Link href="./HouseList"><FaLessThan /></Nav.Link>
 
     <Navbar.Brand className="brand">{name}</Navbar.Brand>
 

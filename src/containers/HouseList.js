@@ -8,11 +8,11 @@ import House from '../components/House';
 
 const HouseList = () => {
   const dispatch = useDispatch();
-  const { house } = useSelector((state) => state.houses);
+  const { house, userInfo } = useSelector((state) => state.houses);
   useEffect(() => {
     dispatch(fetchHouses());
   }, [dispatch]);
-
+  console.log(userInfo.logged_in);
   return (
     <>
       <Nav />

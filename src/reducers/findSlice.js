@@ -46,7 +46,7 @@ export const loginstatus = createAsyncThunk('status/loginstatus',
     //     'Access-Control-Allow-Credentials': true,
     //   },
     // }
-
+    console.log(data);
     return data;
   });
 
@@ -57,24 +57,24 @@ export const loginuser = createAsyncThunk('user/loginuser',
     //   withCredentials: true,
     //   mode: 'no-cors',
     // }
-
+    // console.log(data);
     return data;
   });
 
 export const logoutuser = createAsyncThunk('user/logoutuser',
   async () => {
-    const { data } = await axios.post('/logout', { withCredentials: true });
-    return data.data;
+    const { data } = await axios.post('https://findlidushouse.herokuapp.com/logout');
+    return data;
   });
 
 export const addfavorite = createAsyncThunk('favorite/addfavorite',
   async (favorite) => {
-    const { data } = await axios.post('/favorites', { favorite }, { withCredentials: true });
+    const { data } = await axios.post('https://findlidushouse.herokuapp.com/favorites', { favorite }, { withCredentials: true });
     return data.data;
   });
 export const fetchFavorite = createAsyncThunk('favorite/fetchFavorite',
   async () => {
-    const { data } = await axios.get('/favorites');
+    const { data } = await axios.get('https://findlidushouse.herokuapp.com/favorites');
     return data.data;
   });
 
