@@ -34,7 +34,7 @@ export const fetchHouse = createAsyncThunk('house/fetchHouse',
 
 export const loginstatus = createAsyncThunk('status/loginstatus',
   async () => {
-    const { data } = await axios.get(' https://mysterious-cliffs-97334.herokuapp.com/https://findlidushouse.herokuapp.com/logged_in',
+    const { data } = await axios.get('https://findlidushouse.herokuapp.com/logged_in',
       {
         mode: 'no-cors',
         withCredentials: true,
@@ -50,7 +50,7 @@ export const loginstatus = createAsyncThunk('status/loginstatus',
 
 export const loginuser = createAsyncThunk('user/loginuser',
   async (user) => {
-    const { data } = await axios.post(' https://mysterious-cliffs-97334.herokuapp.com/https://findlidushouse.herokuapp.com/login', { user }, {
+    const { data } = await axios.post('https://findlidushouse.herokuapp.com/login', { user }, {
       withCredentials: true,
       mode: 'no-cors',
     });
