@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { loginstatus } from '../reducers/findSlice';
 import HouseList from '../containers/HouseList';
 import FavouriteList from '../containers/FavouriteList';
 import SingleHouseList from '../containers/SingleHouseList';
@@ -12,12 +11,7 @@ import '../style/main.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Routes = () => {
-  const dispatch = useDispatch();
-  const { userInfo } = useSelector((state) => state.houses);
-  useEffect(() => {
-    dispatch(loginstatus());
-  }, [dispatch]);
-
+  const { loggedin } = useSelector((state) => state.houses);
   return (
     <BrowserRouter>
 
@@ -26,7 +20,7 @@ const Routes = () => {
           exact
           path="/"
           render={() => (
-            userInfo.logged_in ? (
+            loggedin ? (
               <HouseList />
             ) : (
               <Login />
@@ -37,7 +31,7 @@ const Routes = () => {
           exact
           path="/HouseList"
           render={() => (
-            userInfo.logged_in ? (
+            loggedin ? (
               <HouseList />
             )
               : (
@@ -52,7 +46,7 @@ const Routes = () => {
           exact
           path="/FavouriteList"
           render={() => (
-            userInfo.logged_in ? (
+            loggedin ? (
               <FavouriteList />
             )
               : (
@@ -67,7 +61,7 @@ const Routes = () => {
           exact
           path="/SingleHouseList"
           render={() => (
-            userInfo.logged_in ? (
+            loggedin ? (
               <SingleHouseList />
             )
               : (
