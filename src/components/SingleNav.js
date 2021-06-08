@@ -1,14 +1,14 @@
 import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
 import { PropTypes } from 'prop-types';
+import { Link } from 'react-router-dom';
 import { FaSearch, FaLessThan } from 'react-icons/fa';
 import '../style/main.scss';
+import '../style/style.css';
 
 const SingleNav = ({ name }) => (
   <Navbar bg="light" variant="light" expand="lg" collapseOnSelect>
 
-    <Nav.Link href="./HouseList"><FaLessThan /></Nav.Link>
-
+    <Link to="./HouseList" className="links"><FaLessThan /></Link>
     <Navbar.Brand className="brand">{name}</Navbar.Brand>
 
     <div className="search">
