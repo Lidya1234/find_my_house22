@@ -16,7 +16,7 @@ This is a find my house project built with react, HTML5, CSS3, and redux toolkit
 - React hooks
 
 ## Live Demo
-[Live_Demo](https://findlidushouse.herokuapp.com/)
+[Live_Demo](https://jovial-agnesi-9bf50a.netlify.app/)
 
 ## Getting Started
 
