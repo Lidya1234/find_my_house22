@@ -1,7 +1,9 @@
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+import { Link } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
 import '../style/main.scss';
+import '../style/style.css';
 
 const Navigation = () => (
 
@@ -9,9 +11,9 @@ const Navigation = () => (
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto">
-        <Nav.Link href="./">Home</Nav.Link>
-        <Nav.Link href="./FavouriteList">Favourites</Nav.Link>
-        <Nav.Link href="/Logout">Logout</Nav.Link>
+        <Link to="./" className="links">Home</Link>
+        <Link to="./FavouriteList" className="links">Favourites</Link>
+        <Link to="./Logout" className="links">Logout</Link>
       </Nav>
     </Navbar.Collapse>
     <Navbar.Brand className="brand">Houses</Navbar.Brand>
