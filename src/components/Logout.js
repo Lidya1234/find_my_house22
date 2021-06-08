@@ -8,8 +8,8 @@ const Logout = () => {
   const history = useHistory();
   useEffect(() => {
     dispatch(logoutuser());
+    history.push('/Login');
   }, [dispatch]);
-  history.push('/Login');
   return (null);
 };
 
