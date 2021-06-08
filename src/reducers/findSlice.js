@@ -5,7 +5,6 @@ import { HTTP_STATUS } from '../constants/constants';
 export const fetchHouses = createAsyncThunk('house/fetchHouses',
   async () => {
     const { data } = await axios.get('https://findlidushouse.herokuapp.com/api/v1/houses');
-    console.log(data.data);
     return data.data;
   });
 
@@ -18,14 +17,12 @@ export const fetchHouse = createAsyncThunk('house/fetchHouse',
 export const loginstatus = createAsyncThunk('status/loginstatus',
   async () => {
     const { data } = await axios.get('https://findlidushouse.herokuapp.com/logged_in');
-    console.log(data);
     return data;
   });
 
 export const loginuser = createAsyncThunk('user/loginuser',
   async (user) => {
     const { data } = await axios.post('https://findlidushouse.herokuapp.com/login', { user });
-    console.log(data);
     return data;
   });
 

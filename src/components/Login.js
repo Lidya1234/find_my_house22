@@ -17,7 +17,6 @@ const Login = () => {
       username,
       password,
     };
-    console.log(user);
     dispatch(loginuser(user));
     user = {
       username: '',
@@ -30,7 +29,6 @@ const Login = () => {
 
   const handleUNameChange = (e) => {
     username = e.target.value;
-    console.log(username);
   };
   const handlePasswordChange = (e) => {
     password = e.target.value;

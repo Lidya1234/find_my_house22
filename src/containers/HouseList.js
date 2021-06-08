@@ -12,7 +12,6 @@ const HouseList = () => {
   useEffect(() => {
     dispatch(fetchHouses());
   }, [dispatch]);
-  console.log(house);
   return (
     <>
       <Nav />
