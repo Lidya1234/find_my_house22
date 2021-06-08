@@ -128,3 +128,10 @@ body {
 .forgotpwd {
   color: black;
 }
+
+.links
+{
+  text-decoration: none;
+  margin-bottom: 6px;
+  color: gray;
+}
