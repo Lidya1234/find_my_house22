@@ -25,7 +25,7 @@ const Login = () => {
     };
     if (userInfo.logged_in) {
       history.push('/HouseList');
-      Notifysuccess();
+      Notify();
     }
   };
 
@@ -71,7 +71,7 @@ const Login = () => {
         </form>
         <div>
           You do not have an account
-          <Link to="/Signup">Sign up</Link>
+          <Link to="/Signup" className="signlink">Sign up</Link>
         </div>
       </div>
     </div>

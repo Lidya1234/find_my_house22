@@ -5,13 +5,13 @@ import { useHistory, Link } from 'react-router-dom';
 import { signuser } from '../reducers/findSlice';
 import '../style/style.css';
 import '../style/main.scss';
+import Notify from '../Notification/Notify';
 
 const Signup = () => {
   let username = '';
   let password = '';
   /* eslint-disable camelcase */
   let password_confirmation = '';
-  // let message = '';
   const history = useHistory();
   const dispatch = useDispatch();
   const { create } = useSelector((state) => state.houses);
@@ -26,9 +26,7 @@ const Signup = () => {
     dispatch(signuser(user));
     if (create.status !== 500) {
       history.push('/Login');
-      // message = 'User successfully created';
-    } else {
-      // message = create.error;
+      Notify();
     }
   };
 
@@ -73,7 +71,7 @@ const Signup = () => {
           <div>
             <input
               type="password"
-              placeholder="Enter password_confirmation"
+              placeholder="Confirm password"
               className="txt-input"
               name="password"
               onChange={handlePasswordConfChange}
@@ -87,7 +85,7 @@ const Signup = () => {
         </form>
         <div>
           You already have an account
-          <Link to="/Login">Sign in</Link>
+          <Link to="/Login" className="signlink">Sign in</Link>
         </div>
       </div>
     </div>
