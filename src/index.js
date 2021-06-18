@@ -6,7 +6,6 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { persistStore } from 'redux-persist';
 import Route from './routes/Route';
 import store from './reducers/index';
-import reportWebVitals from './reportWebVitals';
 
 const persistor = persistStore(store);
 ReactDOM.render(
@@ -17,5 +16,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root'),
 );
-
-reportWebVitals();
