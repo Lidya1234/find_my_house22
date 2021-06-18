@@ -46,7 +46,6 @@ export const addfavorite = createAsyncThunk('favorite/addfavorite',
 export const removefavorite = createAsyncThunk('favorite/removefavorite',
   async (id) => {
     const { data } = await axios.delete(`https://findlidushouse.herokuapp.com/favorites/${id}`);
-    console.log(data);
     return data;
   });
 export const fetchFavorite = createAsyncThunk('favorite/fetchFavorite',
