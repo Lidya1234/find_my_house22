@@ -32,7 +32,7 @@ describe('House component tests', () => {
   test('Component should Render', () => {
     expect(loginElement).toBeInTheDocument();
   });
-  test('Component should contain a per month text', () => {
+  test('Component should contain a sign in text', () => {
     expect(loginElement).toHaveTextContent('Sign in');
   });
   test('Matches snapshot', () => {
