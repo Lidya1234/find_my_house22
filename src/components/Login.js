@@ -4,6 +4,7 @@ import { useHistory, Link } from 'react-router-dom';
 import { loginuser } from '../reducers/findSlice';
 import '../style/style.css';
 import '../style/main.scss';
+import Notify from '../Notification/Notify';
 
 const Login = () => {
   let username = '';
@@ -24,6 +25,7 @@ const Login = () => {
     };
     if (userInfo.logged_in) {
       history.push('/HouseList');
+      Notifysuccess();
     }
   };
 
