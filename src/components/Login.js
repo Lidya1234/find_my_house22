@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { loginuser } from '../reducers/findSlice';
 import '../style/style.css';
 import '../style/main.scss';
@@ -38,8 +38,8 @@ const Login = () => {
       <div className="login">
         <h1>Sign in</h1>
         <span>
-          Hello!There signin and
-          <div>start managing your system</div>
+          Hello there! Signin and
+          <div>Start managing your system</div>
         </span>
 
         <form onSubmit={handleSubmit} className="form">
@@ -67,6 +67,10 @@ const Login = () => {
             </button>
           </div>
         </form>
+        <div>
+          You do not have an account
+          <Link to="/Signup">Sign up</Link>
+        </div>
       </div>
     </div>
   );
