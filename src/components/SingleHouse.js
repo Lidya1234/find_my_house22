@@ -1,12 +1,14 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import '../style/style.css';
 import '../style/Rating.css';
 import ReactTextCollapse from 'react-text-collapse';
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
+import { addfavorite, removefavorite } from '../reducers/findSlice';
 
 const SingleHouse = ({
-  name, image, price, rank, description,
+  id, name, image, price, rank, description,
 }) => {
   const rate = (rank / 5) * 100;
   const TEXT_COLLAPSE_OPTIONS = {
@@ -21,6 +23,22 @@ const SingleHouse = ({
       float: 'center',
       textAlign: 'center',
     },
+  };
+  const dispatch = useDispatch();
+  const { singlehouse, isAdded } = useSelector((state) => state.houses);
+  const handleAddFavorite = (event) => {
+    event.preventDefault();
+    const userid = id;
+    const houseid = singlehouse.id;
+    const favorite = {
+      user_id: userid,
+      house_id: houseid,
+    };
+    if (isAdded) {
+      dispatch(removefavorite(id));
+    } else {
+      dispatch(addfavorite(favorite));
+    }
   };
   return (
     <>
@@ -53,11 +71,20 @@ const SingleHouse = ({
         </ReactTextCollapse>
       </div>
 
+      <button
+        type="button"
+        className="appbtn"
+        onClick={handleAddFavorite}
+      >
+        { isAdded ? 'Remove from Favourite'
+          : 'Add To Favourite'}
+      </button>
     </>
   );
 };
 
 SingleHouse.propTypes = {
+  id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
