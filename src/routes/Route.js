@@ -6,6 +6,7 @@ import FavouriteList from '../containers/FavouriteList';
 import SingleHouseList from '../containers/SingleHouseList';
 import Login from '../components/Login';
 import Logout from '../components/Logout';
+import Signup from '../components/Signup';
 import '../style/main.scss';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -73,6 +74,7 @@ const Routes = () => {
         />
         <Route exact path="/Login" component={Login} />
         <Route exact path="/Logout" component={Logout} />
+        <Route exact path="/Signup" component={Signup} />
       </Switch>
 
     </BrowserRouter>
