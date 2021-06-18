@@ -19,6 +19,11 @@ export const loginstatus = createAsyncThunk('status/loginstatus',
     const { data } = await axios.get('https://findlidushouse.herokuapp.com/logged_in');
     return data;
   });
+export const signuser = createAsyncThunk('user/signuser',
+  async (user) => {
+    const { data } = await axios.post('https://findlidushouse.herokuapp.com/users', { user });
+    return data;
+  });
 
 export const loginuser = createAsyncThunk('user/loginuser',
   async (user) => {
@@ -35,7 +40,14 @@ export const logoutuser = createAsyncThunk('user/logoutuser',
 export const addfavorite = createAsyncThunk('favorite/addfavorite',
   async (favorite) => {
     const { data } = await axios.post('https://findlidushouse.herokuapp.com/favorites', { favorite });
-    return data.data;
+    return data;
+  });
+
+export const removefavorite = createAsyncThunk('favorite/removefavorite',
+  async (id) => {
+    const { data } = await axios.delete(`https://findlidushouse.herokuapp.com/favorites/${id}`);
+    console.log(data);
+    return data;
   });
 export const fetchFavorite = createAsyncThunk('favorite/fetchFavorite',
   async () => {
@@ -52,7 +64,10 @@ export const findSlice = createSlice({
     status: 'idle',
     userInfo: {},
     loggedin: false,
-    user: {},
+    create: {},
+    addfavorite: {},
+    removefavorite: {},
+    isAdded: false,
   },
   reducers: {
     CHANGE_LOGGEDIN: (state, action) => ({
@@ -94,6 +109,42 @@ export const findSlice = createSlice({
       state.favorite = action.payload;
     },
     [fetchFavorite.rejected](state) {
+      state.status = HTTP_STATUS.REJECTED;
+    },
+    [addfavorite.pending](state) {
+      state.status = HTTP_STATUS.PENDING;
+    },
+    [addfavorite.fulfilled](state, action) {
+      state.status = HTTP_STATUS.FULFILLED;
+      state.addfavorite = action.payload;
+      if (state.addfavorite.status === 'SUCCESS') {
+        state.isAdded = true;
+      }
+    },
+    [addfavorite.rejected](state) {
+      state.status = HTTP_STATUS.REJECTED;
+    },
+    [removefavorite.pending](state) {
+      state.status = HTTP_STATUS.PENDING;
+    },
+    [removefavorite.fulfilled](state, action) {
+      state.status = HTTP_STATUS.FULFILLED;
+      state.removefavorite = action.payload;
+      if (state.removefavorite.status === 'SUCCESS') {
+        state.isAdded = false;
+      }
+    },
+    [removefavorite.rejected](state) {
+      state.status = HTTP_STATUS.REJECTED;
+    },
+    [signuser.pending](state) {
+      state.status = HTTP_STATUS.PENDING;
+    },
+    [signuser.fulfilled](state, action) {
+      state.status = HTTP_STATUS.FULFILLED;
+      state.create = action.payload;
+    },
+    [signuser.rejected](state) {
       state.status = HTTP_STATUS.REJECTED;
     },
     [loginuser.pending](state) {
