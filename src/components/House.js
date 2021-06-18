@@ -14,7 +14,7 @@ const House = ({
       state: { data: id },
     }}
     >
-      <div className="house">
+      <div className="house" data-testid="house">
         <img className="image" src={image} alt={image} />
         <div className="describe">
           <div className="name">

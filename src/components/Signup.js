@@ -41,7 +41,7 @@ const Signup = () => {
   };
   /* eslint-enable camelcase */
   return (
-    <div className="container">
+    <div className="container" data-testid="signup">
       <div className="login">
         <h1>Sign in</h1>
         <span>

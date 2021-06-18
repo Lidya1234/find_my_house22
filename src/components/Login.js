@@ -36,7 +36,7 @@ const Login = () => {
     password = e.target.value;
   };
   return (
-    <div className="container">
+    <div className="container" data-testid="login">
       <div className="login">
         <h1>Sign in</h1>
         <span>
