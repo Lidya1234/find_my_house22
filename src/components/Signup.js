@@ -28,7 +28,7 @@ const Signup = () => {
     setTimeout(() => {
       if (create.status === 500) {
         Notifyerr();
-      } else {
+      } else if (create.status === 'created') {
         history.push('/Login');
         Notify();
       }
