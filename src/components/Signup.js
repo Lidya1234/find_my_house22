@@ -32,7 +32,7 @@ const Signup = () => {
         history.push('/Login');
         Notify();
       }
-    }, 6000);
+    }, 10000);
   };
 
   const handleUNameChange = (e) => {
