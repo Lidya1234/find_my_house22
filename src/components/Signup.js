@@ -6,6 +6,7 @@ import { signuser } from '../reducers/findSlice';
 import '../style/style.css';
 import '../style/main.scss';
 import Notify from '../Notification/Notify';
+import Notifyerr from '../Notification/Notifyerr';
 
 const Signup = () => {
   let username = '';
@@ -24,10 +25,14 @@ const Signup = () => {
     };
 
     dispatch(signuser(user));
-    if (create.status !== 500) {
-      history.push('/Login');
-      Notify();
-    }
+    setTimeout(() => {
+      if (create.status === 500) {
+        Notifyerr();
+      } else {
+        history.push('/Login');
+        Notify();
+      }
+    }, 6000);
   };
 
   const handleUNameChange = (e) => {
