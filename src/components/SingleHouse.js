@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import '../style/style.css';
@@ -6,9 +6,7 @@ import '../style/Rating.css';
 import ReactTextCollapse from 'react-text-collapse';
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
 import Notify from '../Notification/Notify';
-import {
-  addfavorite, removefavorite, fetchFavorite, CHANGE_ACTION,
-} from '../reducers/findSlice';
+import { addfavorite, removefavorite } from '../reducers/findSlice';
 
 const SingleHouse = ({
   id, name, image, price, rank, description,
@@ -28,40 +26,20 @@ const SingleHouse = ({
     },
   };
   const dispatch = useDispatch();
-  const {
-    singlehouse, isAdded, house, favorite,
-  } = useSelector((state) => state.houses);
-  useEffect(() => {
-    dispatch(fetchFavorite());
-  }, [dispatch]);
-
+  const { singlehouse, isAdded } = useSelector((state) => state.houses);
   const handleAddFavorite = (event) => {
     event.preventDefault();
     const userid = id;
     const houseid = singlehouse.id;
-    const favoritee = {
+    const favorite = {
       user_id: userid,
       house_id: houseid,
     };
-
-    const list = [];
-    const listId = [];
-    const favids = [];
-    favorite.map((item) => favids.push(item.house_id));
-    for (let i = 0; i < house.length; i += 1) {
-      if (favids.includes(house[i].id)) {
-        list.push(house[i]);
-        listId.push(house[i].id);
-      }
-    }
-
-    if (favids.includes(houseid)) {
+    if (isAdded) {
       dispatch(removefavorite(id));
-      dispatch(CHANGE_ACTION(false));
       Notify();
     } else {
-      dispatch(addfavorite(favoritee));
-      dispatch(CHANGE_ACTION(false));
+      dispatch(addfavorite(favorite));
       Notify();
     }
   };
