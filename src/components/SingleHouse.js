@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import '../style/style.css';
@@ -6,7 +6,9 @@ import '../style/Rating.css';
 import ReactTextCollapse from 'react-text-collapse';
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
 import Notify from '../Notification/Notify';
-import { addfavorite, removefavorite, fetchFavorite, CHANGE_ACTION,} from '../reducers/findSlice';
+import {
+  addfavorite, removefavorite, fetchFavorite, CHANGE_ACTION,
+} from '../reducers/findSlice';
 
 const SingleHouse = ({
   id, name, image, price, rank, description,
@@ -26,7 +28,9 @@ const SingleHouse = ({
     },
   };
   const dispatch = useDispatch();
-  const { singlehouse, isAdded } = useSelector((state) => state.houses);
+  const {
+    singlehouse, isAdded, house, favorite,
+  } = useSelector((state) => state.houses);
   useEffect(() => {
     dispatch(fetchFavorite());
   }, [dispatch]);
@@ -35,11 +39,11 @@ const SingleHouse = ({
     event.preventDefault();
     const userid = id;
     const houseid = singlehouse.id;
-    const favorite = {
+    const favoritee = {
       user_id: userid,
       house_id: houseid,
     };
-    
+
     const list = [];
     const listId = [];
     const favids = [];

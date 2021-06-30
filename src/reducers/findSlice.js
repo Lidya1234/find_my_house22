@@ -74,8 +74,8 @@ export const findSlice = createSlice({
     }),
     CHANGE_ACTION: (state, action) => ({
       isAdded: action.payload,
-  }),
-},
+    }),
+  },
   /* eslint-disable no-param-reassign */
   extraReducers: {
     [fetchHouses.pending](state) {
