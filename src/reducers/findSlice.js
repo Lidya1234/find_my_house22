@@ -69,9 +69,9 @@ export const findSlice = createSlice({
     isAdded: false,
   },
   reducers: {
-    CHANGE_LOGGEDIN: (state, action) => ({
-      loggedin: action.payload,
-    }),
+    // CHANGE_LOGGEDIN: (state, action) => ({
+    //   loggedin: action.payload,
+    // }),
     CHANGE_ACTION: (state, action) => ({
       isAdded: action.payload,
     }),
