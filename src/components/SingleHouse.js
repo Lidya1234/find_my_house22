@@ -6,7 +6,7 @@ import '../style/Rating.css';
 import ReactTextCollapse from 'react-text-collapse';
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
 import Notify from '../Notification/Notify';
-import { addfavorite, removefavorite } from '../reducers/findSlice';
+import { addfavorite, removefavorite, fetchFavorite, CHANGE_ACTION,} from '../reducers/findSlice';
 
 const SingleHouse = ({
   id, name, image, price, rank, description,
@@ -27,6 +27,10 @@ const SingleHouse = ({
   };
   const dispatch = useDispatch();
   const { singlehouse, isAdded } = useSelector((state) => state.houses);
+  useEffect(() => {
+    dispatch(fetchFavorite());
+  }, [dispatch]);
+
   const handleAddFavorite = (event) => {
     event.preventDefault();
     const userid = id;
@@ -35,11 +39,25 @@ const SingleHouse = ({
       user_id: userid,
       house_id: houseid,
     };
-    if (isAdded) {
+    
+    const list = [];
+    const listId = [];
+    const favids = [];
+    favorite.map((item) => favids.push(item.house_id));
+    for (let i = 0; i < house.length; i += 1) {
+      if (favids.includes(house[i].id)) {
+        list.push(house[i]);
+        listId.push(house[i].id);
+      }
+    }
+
+    if (favids.includes(houseid)) {
       dispatch(removefavorite(id));
+      dispatch(CHANGE_ACTION(false));
       Notify();
     } else {
-      dispatch(addfavorite(favorite));
+      dispatch(addfavorite(favoritee));
+      dispatch(CHANGE_ACTION(false));
       Notify();
     }
   };

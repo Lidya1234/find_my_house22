@@ -72,12 +72,10 @@ export const findSlice = createSlice({
     CHANGE_LOGGEDIN: (state, action) => ({
       loggedin: action.payload,
     }),
-    CHANGE_SINGLE: (state, action) => ({
-      single: action.payload,
-      catalogues: state.catalogues,
-
-    }),
-  },
+    CHANGE_ACTION: (state, action) => ({
+      isAdded: action.payload,
+  }),
+},
   /* eslint-disable no-param-reassign */
   extraReducers: {
     [fetchHouses.pending](state) {
@@ -174,5 +172,5 @@ export const findSlice = createSlice({
 });
 /* eslint-enable no-param-reassign */
 // Action creators are generated for each case reducer function
-export const { CHANGE_LOGGEDIN } = findSlice.actions;
+export const { CHANGE_LOGGEDIN, CHANGE_ACTION } = findSlice.actions;
 export default findSlice.reducer;
